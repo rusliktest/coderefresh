@@ -1,6 +1,6 @@
 const { exec } = require("child_process")
 
-const commit = 'fresh'
+const commit = `Commit date: ${new Date()}`
 const branch = 'main'
 
 exec(`git add . & git commit -m "Commit ${commit}" & git push origin ${branch}`, (error, stdout, stderr) => {
