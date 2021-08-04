@@ -26,6 +26,7 @@ jobs:
         # with:
         #   args: '-v BUILD_TAG=${{ github.sha }}'
         env:
-          PIPELINE_NAME: 'test/second'  #'todo-service/integration'
+          PIPELINE_NAME: 'test/first'
+          # PIPELINE_NAME: 'test/second'  #'todo-service/integration'
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
         id: codefresh
