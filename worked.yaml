@@ -1,0 +1,16 @@
+version: "1.0"
+stages:
+  - "yaml-lint"
+
+steps:
+  yaml-lint:
+    title: "YAML Lint"
+    description: "Validate YAML syntax"
+    type: "github-action-executor"
+    arguments:
+      url: 'https://github.com/marketplace/actions/yaml-lint'
+      envs:
+        - INPUT_FILE_OR_DIR: "./"
+        - INPUT_FORMAT: "colored"
+      registry: "dockerhub"
+      registry_repo: "codefreshplugins"
