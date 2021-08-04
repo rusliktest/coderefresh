@@ -17,4 +17,4 @@ steps:
     stage: second
     command:
       - echo hello, MIR22222!
-      - echo buy, __JUICE_WRLD22222__!!
+      - echo buy, __JUICE_WRLD22222__!!!!
