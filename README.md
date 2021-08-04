@@ -8,3 +8,4 @@ https://codefresh-io.github.io/cli/authentication/create-context/
 
 - codefresh auth create-context my-context --api-key $CF_TOKEN
 - codefresh get context
+- codefresh get project (выдаст все проекты)
