@@ -1,13 +1,31 @@
+# name: run codefresh pipeline
+# on: push
+# jobs:
+#   build:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Codefresh pipeline runner
+#         uses: codefresh-io/codefresh-pipeline-runner@v5
+#         env:
+#           PIPELINE_NAME: 'codefresh-io/cf-yaml-validator/cf-yaml-validator'
+#           TRIGGER_NAME: 'codefresh-io/cf-yaml-validator_1'
+#           CF_API_KEY: ${{ secrets.CF_API_KEY }}
+#         id: run-pipeline
+
 name: run codefresh pipeline
 on: push
 jobs:
-  build:
-    runs-on: ubuntu-18.04
+  integration_deploy:
+    runs-on: ubuntu-20.04
+    name: 'Integration Deploy'
+    # needs: build
+    # if: github.ref == 'refs/heads/main'
     steps:
       - name: Codefresh pipeline runner
-        uses: codefresh-io/codefresh-pipeline-runner@v5
+        uses: codefresh-io/codefresh-pipeline-runner@v7
+        # with:
+        #   args: '-v BUILD_TAG=${{ github.sha }}'
         env:
-          PIPELINE_NAME: 'codefresh-io/cf-yaml-validator/cf-yaml-validator'
-          TRIGGER_NAME: 'codefresh-io/cf-yaml-validator_1'
+          PIPELINE_NAME: 'test/second'  #'todo-service/integration'
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
-        id: run-pipeline
+        id: codefresh
