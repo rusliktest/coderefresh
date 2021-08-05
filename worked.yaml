@@ -1,17 +1,17 @@
 version: "1.0"
 stages:
-  - "yaml-lint"
+  - "lint"
 
 steps:
-  yaml-lint:
-    title: "YAML Lint"
-    description: "Validate YAML syntax"
-    type: "github-action-executor"
-    arguments:
-      url: 'https://github.com/marketplace/actions/yaml-lint'
-      envs:
-        - INPUT_FILE_OR_DIR: "./"
-        - INPUT_FORMAT: "colored"
-        - INPUT_CONFIG_DATA: "{ extends: default, rules: { line-length: { max: 120 }, document-start: false, truthy: disable }, ignore: /node_modules/}"
-      registry: "dockerhub"
-      registry_repo: "codefreshplugins"
+ lint:
+   title: "YAML Lint"
+   description: "Validate YAML syntax"
+   type: "github-action-executor"
+   arguments:
+     url: 'https://github.com/marketplace/actions/yaml-lint'
+     envs:
+       - INPUT_FILE_OR_DIR: "/"
+       - INPUT_CONFIG_FILE: "/.yamllint.yaml"
+       - INPUT_FORMAT: "colored"
+     registry: "dockerhub"
+     registry_repo: "codefreshplugins"
